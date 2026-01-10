@@ -4,3 +4,4 @@
   margin: 0 auto;      
   padding: 3rem 1rem;  
 }
+html, body { margin: 0; width: 100%; height: 100%; }
