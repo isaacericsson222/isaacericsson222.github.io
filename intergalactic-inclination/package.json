@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@xterm/xterm": "^6.0.0",
     "astro": "^5.15.4"
   }
 }
