@@ -82,16 +82,23 @@ window.addEventListener("DOMContentLoaded", () => {
 
   term.open(el);
   fitAddon.fit();
-  window.addEventListener("resize", () => fitAddon.fit());
+  term.scrollToBottom();
+  window.addEventListener("resize", () => {
+    fitAddon.fit();
+    term.scrollToBottom();
+  });
+
   setTimeout(() => fitAddon.fit(), 0);
   const state = loadState();
 
   for (const l of state.lines) term.writeln(l);
+  term.scrollToBottom();
 
   function writelnRecord(text) {
     term.writeln(text);
     state.lines.push(text);
     saveState(state);
+    term.scrollToBottom();
   }
 
   function clearRecord() {
@@ -106,8 +113,10 @@ window.addEventListener("DOMContentLoaded", () => {
   const PROMPT = "$ "; //ADD DATE AND TIME LATER!!!
   let line = "";
 
-  const prompt = () => term.write(PROMPT);
-
+  const prompt = () => {
+    term.write(PROMPT);
+    term.scrollToBottom();
+  };
   const printHelp = () => {
     writelnRecord(
       `${ANSI.bold}${ANSI.magenta}help${ANSI.reset}      Prints this help message`
