@@ -177,7 +177,7 @@ window.addEventListener("DOMContentLoaded", () => {
   };
 
   if (state.lines.length === 0) {
-    writelnRecord("Hello from your terminal");
+    writelnRecord("Hello from your terminal, try help to get started");
   }
   prompt();
 
