@@ -133,6 +133,10 @@ window.addEventListener("DOMContentLoaded", () => {
     switch (cmd) {
       case "":
         return;
+      case "hi":
+      case "Hi":
+        writelnRecord("Hello!");
+        break;
       case "help":
         printHelp();
         break;
