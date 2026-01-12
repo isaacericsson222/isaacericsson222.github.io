@@ -8,20 +8,67 @@ html, body {
   margin: 0;
   width: 100%; 
   height: 100%; 
+  /*background: #B26853 */
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+.frame{
+  position: relative;
+  padding: 1rem;
+  border-radius: 12px;
+  /* no border-image here */
 }
 
-.frame {
-  margin: 1rem;             
-  padding: 1.5rem;          
-  border: 3px dashed #000;  
-  border-radius: 12px;      
+/* tweak these */
+.frame::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  pointer-events:none;
+
+  --b: 6px;   /* border thickness */
+  --d1: 12px; /* dash length */
+  --g: 8px;   /* gap length */
+
+  /* 4 separate “borders” */
+  background:
+    /* top */
+    repeating-linear-gradient(
+      90deg,
+      #E9B996 0 var(--d1),
+      transparent var(--d1) calc(var(--d1) + var(--g)),
+      #741626 calc(var(--d1) + var(--g)) calc(2*var(--d1) + var(--g)),
+      transparent calc(2*var(--d1) + var(--g)) calc(2*var(--d1) + 2*var(--g))
+    ) top / 100% var(--b) no-repeat,
+
+    /* bottom */
+    repeating-linear-gradient(
+      90deg,
+      #E9B996 0 var(--d1),
+      transparent var(--d1) calc(var(--d1) + var(--g)),
+      #741626 calc(var(--d1) + var(--g)) calc(2*var(--d1) + var(--g)),
+      transparent calc(2*var(--d1) + var(--g)) calc(2*var(--d1) + 2*var(--g))
+    ) bottom / 100% var(--b) no-repeat,
+
+    /* left */
+    repeating-linear-gradient(
+      180deg,
+      #E9B996 0 var(--d1),
+      transparent var(--d1) calc(var(--d1) + var(--g)),
+      #741626 calc(var(--d1) + var(--g)) calc(2*var(--d1) + var(--g)),
+      transparent calc(2*var(--d1) + var(--g)) calc(2*var(--d1) + 2*var(--g))
+    ) left / var(--b) 100% no-repeat,
+
+    /* right */
+    repeating-linear-gradient(
+      180deg,
+      #E9B996 0 var(--d1),
+      transparent var(--d1) calc(var(--d1) + var(--g)),
+      #741626 calc(var(--d1) + var(--g)) calc(2*var(--d1) + var(--g)),
+      transparent calc(2*var(--d1) + var(--g)) calc(2*var(--d1) + 2*var(--g))
+    ) right / var(--b) 100% no-repeat;
 }
+
 
 .term-wrap {
   margin-top: 1.5rem;
