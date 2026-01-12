@@ -151,11 +151,11 @@ window.addEventListener("DOMContentLoaded", () => {
           window.location.pathname === "/" ||
           window.location.pathname === "/index.html"
         )
-          window.location.href = "/fortune-teller";
+          window.location.href = "/fortune-teller/";
         return;
       case "w":
       case "west":
-        if (window.location.pathname === "/fortune-teller")
+        if (window.location.pathname === "/fortune-teller/")
           window.location.href = "/index.html";
         return;
       default:
