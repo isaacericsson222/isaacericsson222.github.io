@@ -156,7 +156,7 @@ window.addEventListener("DOMContentLoaded", () => {
       case "w":
       case "west":
         if (window.location.pathname === "/fortune-teller/")
-          window.location.href = "/index.html";
+          window.location.href = "/";
         return;
       default:
         writelnRecord(`${ANSI.gray}command not found:${ANSI.reset} ${cmd}`);
