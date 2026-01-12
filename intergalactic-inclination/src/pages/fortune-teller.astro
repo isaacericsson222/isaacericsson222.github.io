@@ -1,10 +1,58 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
-This page will feature A short paragraph description, describing the room. Plan to have pupleish twilight background with blinking stars.
-<Layout title="About">
-  <h1>About me</h1>
-  <p>…</p>
-  <a href="/">Back home</a>
+<Layout title="Map">
+  <div class ="frame">
+    <main class="hero">
+      <h1>Isaac Ericsson</h1>
+
+      <p>
+       Welcome to the fortune teller!
+      </p>
+
+      <p>
+        *
+                   *
+          *
+      *
+                                      *
+                                *
+      </p>
+
+      <div class="term-wrap"> 
+        <div id="terminal">
+      </div>
+
+      <script>
+        import "../scripts/terminal.js";
+      </script>
+
+    </main>
+  </div>
+  <style>
+    .term-wrap {
+      margin-top: 1.5 rem;
+
+      width: min(900px, 100%);
+      margin-left: auto;
+      margin-right: auto;
+
+      border: 1px solid #333;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0b0f14;
+    }
+
+    #terminal {
+      height: 360px; 
+      width: 100%;
+      padding: 12px;
+    }
+
+    .term-wrap,
+    .term-wrap * {
+      text-align: left !important;
+    }
+  </style>
 </Layout>
