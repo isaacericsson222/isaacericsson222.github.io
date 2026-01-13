@@ -70,40 +70,33 @@ html, body {
     ) right / var(--b) 100% no-repeat;
 }
 
-
 .term-wrap {
-  margin-top: 1.5rem;
-
   width: min(900px, 100%);
-  margin-left: auto;
-  margin-right: auto;
-
+  margin: 1.5rem auto 0;
+  height: min(360px, 60vh);
   border: 1px solid #333;
   border-radius: 12px;
-  overflow: hidden;
   background: #0b0f14;
+  overflow: hidden;
+}
 
-  height: 360px;          /* moved here */
-  padding: 12px;          /* moved here */
+.term-pad {
+  height: 100%;
+  padding: 12px;
   box-sizing: border-box;
 }
 
 #terminal {
-  height: 100%; 
+  height: 100%;
   width: 100%;
-  padding: 0;
-}
-
-.term-wrap,
-.term-wrap * {
-  text-align: left !important;
 }
 
 #terminal .xterm,
-#terminal .xterm-viewport,
-#terminal .xterm-screen {
-  height: 100%;
+#terminal .xterm-viewport {
+  height: auto;      /* or just delete those rules entirely */
 }
+
+.term-wrap, .term-wrap * { text-align: left !important; }
 
 .ascii-map{
   font-family: "Courier New", Courier, ui-monospace, Menlo, Consolas, monospace;

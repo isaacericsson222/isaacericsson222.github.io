@@ -81,14 +81,20 @@ window.addEventListener("DOMContentLoaded", () => {
   term.loadAddon(fitAddon);
 
   term.open(el);
-  fitAddon.fit();
-  term.scrollToBottom();
-  window.addEventListener("resize", () => {
+
+  const doFit = () => {
     fitAddon.fit();
     term.scrollToBottom();
+  };
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(doFit);
   });
 
-  setTimeout(() => fitAddon.fit(), 0);
+  window.addEventListener("resize", () => {
+    requestAnimationFrame(doFit);
+  });
+
   const state = loadState();
 
   for (const l of state.lines) term.writeln(l);
