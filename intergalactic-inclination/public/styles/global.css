@@ -113,4 +113,6 @@ html, body {
   white-space: pre;
   text-align: left;
   display: inline-block;
+  background: #0a1627;
+  color: #8ee7ff;
 }

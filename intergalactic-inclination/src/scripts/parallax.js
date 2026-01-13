@@ -39,8 +39,8 @@ window.addEventListener("DOMContentLoaded", () => {
     const max = 45;
 
     for (const { el, depth } of layers) {
-      const moveX = -currentX * max * depth;
-      const moveY = -currentY * max * depth;
+      const moveX = Math.round(-currentX * max * depth);
+      const moveY = Math.round(-currentY * max * depth);
 
       const extraRaw =
         getComputedStyle(el).getPropertyValue("--extra-transform").trim() || "";
