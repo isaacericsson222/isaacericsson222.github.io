@@ -3,38 +3,115 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Map">
-  <div class ="frame">
-    <main class="hero">
-      <h1>Isaac Ericsson</h1>
+  <div class = "fortune-page">
+  <div class="parallax" data-parallax>
+      <img class="layer bg-back"  data-depth="0.10" src="/styles/gifs/mid.gif" alt="" />
+      <img class="layer bg-mid"   data-depth="0.30" src="/styles/gifs/mid.gif" alt="" />
+      <img class="layer bg-front" data-depth="0.60" src="/styles/gifs/front.gif" alt="" />
 
-      <p>
-       As you enter the smaller pale purple tent the air stills. On a small
-       oak table in the center sits a crystal ball coated in frost. The
-       inside of the tent is pitch black and looking up you see what could be
-       a pattern of constallations or start however as you blink it gets
-       difficult to distinguish from the tent. You get both the feeling that 
-       someone was just here and that you are being watched.
-      </p>
+    <div class ="frame">
+      <main class="hero">
+        <h1>Isaac Ericsson</h1>
 
-      <pre class="ascii-map">
-            , ` , `|[?] [ ] , ` , `
-        ( * , ` , ` , ` [ ] ( * , ` , `
-        , ` , ` , ` , ` [ ] , ` [ ] [#]
-        , ` [ ] [ ] [ ] [?] [ ] [ ] [ ]
-        [?] [ ] , ` , ` [ ] , ` , ` , `
-        , ` , ` , ` , ` [ ] , ` , ` , `
-            , ` , ` ; ; [ ] [?] , `
-      </pre>
+        <p>
+        As you enter the smaller pale purple tent the air stills. On a small
+        oak table in the center sits a crystal ball coated in frost. The
+        inside of the tent is pitch black and looking up you see what could be
+        a pattern of constallations or start however as you blink it gets
+        difficult to distinguish from the tent. You get both the feeling that 
+        someone was just here and that you are being watched.
+        </p>
 
-      <div class="term-wrap"> 
-        <div id="terminal"></div>
-      </div>
+        <pre class="ascii-map">
+              , ` , `|[?] [ ] , ` , `
+          ( * , ` , ` , ` [ ] ( * , ` , `
+          , ` , ` , ` , ` [ ] , ` [ ] [#]
+          , ` [ ] [ ] [ ] [?] [ ] [ ] [ ]
+          [?] [ ] , ` , ` [ ] , ` , ` , `
+          , ` , ` , ` , ` [ ] , ` , ` , `
+              , ` , ` ; ; [ ] [?] , `
+        </pre>
+
+        <div class="term-wrap"> 
+          <div id="terminal"></div>
+        </div>
 
 
-      <script>
-        import "../scripts/terminal.js";
-      </script>
-
-    </main>
+      </main>
+    </div>
   </div>
+  </div>
+<style>
+    .fortune-page {
+      position: relative;
+      min-height: 100vh;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .parallax {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  .layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    will-change: transform;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+
+    /* JS will append this (rotate/scale). Default is "none". */
+    --extra-transform: none;
+    transform-origin: center;
+  }
+
+  .bg-back  {
+  z-index: 0;
+  opacity: 0.18;
+  --extra-transform: rotate(180deg) scale(1.12);
+  filter: blur(2px) brightness(0.7) saturate(0.8);
+}
+
+.bg-mid   {
+  z-index: 1;
+  opacity: 0.35;
+  --extra-transform: rotate(90deg) scale(1.06);
+  filter: blur(1px) brightness(0.9);
+}
+
+.bg-front {
+  z-index: 2;
+  opacity: 0.75;
+  --extra-transform: none;
+  filter: none;
+  mix-blend-mode: screen;
+}
+
+  /* Content above gifs */
+  .fortune-page .frame,
+  .fortune-page .hero {
+    position: relative;
+    z-index: 5;
+  }
+    /* paragraph panel */
+    .fortune-page p {
+      background: #0a1627;
+      color: #8ee7ff;
+      padding: 16px;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: 16px auto;
+      line-height: 1.6;
+    }
+  </style>
+<script>
+          import "../scripts/terminal.js";
+          import "../scripts/parallax.js";
+</script>
 </Layout>
