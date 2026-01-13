@@ -5,9 +5,9 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Map">
   <div class = "fortune-page">
   <div class="parallax" data-parallax>
-      <img class="layer bg-back"  data-depth="0.10" src="/styles/gifs/stars.gif" alt="" />
-      <img class="layer bg-mid"   data-depth="0.30" src="/styles/gifs/stars.gif" alt="" />
-      <img class="layer bg-front" data-depth="0.60" src="/styles/gifs/stars.gif" alt="" />
+      <div class="layer bg-back"  data-depth="0.10"></div>
+      <div class="layer bg-mid"   data-depth="0.30"></div>
+      <div class="layer bg-front" data-depth="0.60"></div>
       <main class="hero">
         <h1>Isaac Ericsson</h1>
 
@@ -55,20 +55,22 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .layer {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    pointer-events: none;
-    will-change: transform;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  will-change: transform;
 
-    /* JS will append this (rotate/scale). Default is "none". */
-    --extra-transform: none;
-    transform-origin: center;
-  }
+  background-image: url("/styles/gifs/stars.gif");
+  background-repeat: repeat;
+  background-size: 500px 500px; /* smaller = smaller stars */
+  
+  /* optional: keeps it crisp */
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+
+  --extra-transform: none;
+  transform-origin: center;
+}
 
   .bg-back  {
   z-index: 0;
