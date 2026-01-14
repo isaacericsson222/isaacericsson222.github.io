@@ -1,24 +1,42 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --banner-h: clamp(260px, 40vh, 500px);
+  --content-max: 700px;
+  --panel-max: 900px;
+}
+
+@media (min-width: 768px) {
+  .hero { padding: 3rem 1rem; }
+  .term-wrap { height: min(360px, 60vh); }
+}
+
+/* Desktop+ */
+@media (min-width: 1024px) {
+  :root { --content-max: 760px; }
+}
+
 .hero {
   text-align: center;   
-  max-width: 700px;   
+  max-width: var(--content-max);
   margin: 0 auto;      
-  padding: 3rem 1rem;  
+  padding: clamp(16px, 4vw, 48px) 16px;
   z-index: 5
 }
 html, body {
   margin: 0;
   width: 100%; 
-  height: 100%; 
+  min-height: 100%;
   background: #463b2d;
   overscroll-behavior-y: none;
   overflow-x: hidden;
 }
+html { -webkit-text-size-adjust: 100%; }
 
 .page-background{
   position: absolute;
-  left: 0;
-  right: 0;
-  top:  500px;   /*banner size*/
+  inset: 0;
+  top: var(--banner-h);
   bottom: 0;
   background: #0a1627;      
   z-index: 3;             
@@ -27,13 +45,11 @@ html, body {
 .content-col{
   position: relative;
   z-index: 5;                 /* above overlay + stars */
-  width: 655px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  max-width: 655px;
 
-  /* start at banner bottom */
-  margin-top: 100px; /* if content is still inside parallax flow, skip this */
-  padding: 24px;
+  margin: 24px auto 0;
+  padding: clamp(14px, 3vw, 24px);
 
   background: #b1a97b;
   color: #111;
@@ -51,9 +67,9 @@ html, body {
 }
 
 .term-wrap {
-  width: min(900px, 100%);
+  width: min(var(--panel-max), 100%);
   margin: 1.5rem auto 0;
-  height: min(360px, 60vh);
+  height: min(320px, 50vh);
   border: 1px solid #333;
   border-radius: 12px;
   background: #0b0f14;
@@ -78,6 +94,13 @@ html, body {
 
 .term-wrap, .term-wrap * { text-align: left !important; }
 
+pre.ascii-map {
+  max-width: 100%;
+  overflow-x: auto;      
+  -webkit-overflow-scrolling: touch;
+  font-size: clamp(12px, 2.6vw, 16px); 
+}
+
 .ascii-map{
   font-family: "Courier New", Courier, ui-monospace, Menlo, Consolas, monospace;
   font-variant-ligatures: none;
@@ -87,3 +110,14 @@ html, body {
   text-align: left;
   display: inline-block;
 }
+
+.panel {
+  background: #0a1627;
+  color: #8ee7ff;
+  padding: 16px;
+  border-radius: 12px;
+  margin: 16px auto;
+  line-height: 1.6;
+  max-width: 800px;
+}
+.panel.title { max-width: 600px; }
