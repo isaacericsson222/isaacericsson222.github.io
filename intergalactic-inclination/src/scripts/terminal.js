@@ -4,8 +4,9 @@ import "@xterm/xterm/css/xterm.css";
 
 window.addEventListener("DOMContentLoaded", () => {
   const el = document.getElementById("terminal");
-  const COOKIE_NAME = "term_state_v1";
+  const COOKIE_NAME = "term_statev1";
   if (!el) return;
+  const fgRGB = (r, g, b) => `\x1b[38;2;${r};${g};${b}m`;
   const ANSI = {
     reset: "\x1b[0m",
     bold: "\x1b[1m",
@@ -26,7 +27,9 @@ window.addEventListener("DOMContentLoaded", () => {
     cyan: "\x1b[36m",
     white: "\x1b[37m",
     gray: "\x1b[90m",
+
     brightYellow: "\x1b[93m",
+    brightMagenta: "\x1b[95m",
   };
 
   function setCookie(name, value, days = 7) {
@@ -183,7 +186,18 @@ window.addEventListener("DOMContentLoaded", () => {
   };
 
   if (state.lines.length === 0) {
-    writelnRecord("Hello from your terminal, try help to get started");
+    writelnRecord(
+      String.raw` 
+--------------------------------------------------------------------${ANSI.brightYellow}
+                ___                __                     
+                |  _  _  _  _    |_  __ o  _  _  _  _ __ 
+               _|__> (_|(_|(_    |__ |  | (_ _> _> (_)| |${ANSI.reset}
+
+                 Welcome and try help to get started!
+--------------------------------------------------------------------
+      `
+    );
+    writelnRecord("");
   }
   prompt();
 

@@ -9,7 +9,23 @@ import Layout from "../layouts/Layout.astro";
       <div class="layer bg-mid"   data-depth="0.30"></div>
       <div class="layer bg-front" data-depth="0.60"></div>
       <main class="hero">
-        <h1>Isaac Ericsson</h1>
+
+      <div class="term-wrap">
+        <div class="term-pad">
+          <div id="terminal"></div>
+        </div>
+      </div>
+      <h1>The Fortune Teller</h1>
+
+        <pre class="ascii-map">
+    , ` , `|[?] [ ] , ` , `
+( * , ` , ` , ` [ ] ( * , ` , `
+, ` , ` , ` , ` [ ] , ` [ ] [?]
+, ` [ ] [ ] [ ] [#] [ ] [ ] [ ]
+[?] [ ] , ` , ` [ ] , ` , ` , `
+, ` , ` , ` , ` [ ] , ` , ` , `
+    , ` , ` ; ; [ ] [?] , `
+      </pre>
 
         <p>
         As you enter the smaller pale purple tent the air stills. On a small
@@ -19,24 +35,7 @@ import Layout from "../layouts/Layout.astro";
         difficult to distinguish from the tent. You get both the feeling that 
         someone was just here and that you are being watched.
         </p>
-      
-        <pre class="ascii-map">
-              , ` , `|[?] [ ] , ` , `
-          ( * , ` , ` , ` [ ] ( * , ` , `
-          , ` , ` , ` , ` [ ] , ` [ ] [#]
-          , ` [ ] [ ] [ ] [?] [ ] [ ] [ ]
-          [?] [ ] , ` , ` [ ] , ` , ` , `
-          , ` , ` , ` , ` [ ] , ` , ` , `
-              , ` , ` ; ; [ ] [?] , `
-        </pre>
-
-       <div class="term-wrap">
-        <div class="term-pad">
-          <div id="terminal"></div>
-        </div>
-      </div>
-
-
+    
       </main>
     </div>
   </div>
@@ -45,13 +44,11 @@ import Layout from "../layouts/Layout.astro";
       position: relative;
       height: 100vh;
       background: #000;
-      overflow: hidden;
     }
 
     .parallax {
     position: relative;
     min-height: 100vh;
-    overflow: hidden;
   }
 
 :root { --bleed: 80px; }
@@ -109,6 +106,24 @@ import Layout from "../layouts/Layout.astro";
       padding: 16px;
       border-radius: 12px;
       max-width: 800px;
+      margin: 16px auto;
+      line-height: 1.6;
+    }
+    .fortune-page pre {
+      background: #0a1627;
+      color: #8ee7ff;
+      padding: 16px;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: 16px auto;
+      line-height: 1.6;
+    }
+    .fortune-page h1 {
+      background: #0a1627;
+      color: #8ee7ff;
+      padding: 16px;
+      border-radius: 12px;
+      max-width: 600px;
       margin: 16px auto;
       line-height: 1.6;
     }
