@@ -32,6 +32,25 @@ window.addEventListener("DOMContentLoaded", () => {
     brightMagenta: "\x1b[95m",
   };
 
+  const isMobileLike = () =>
+    window.matchMedia("(max-width: 767px)").matches || term.cols < 70;
+
+  const introDesktop = () =>
+    String.raw` 
+-----------------------------------------------------------------------${ANSI.brightYellow}
+               ___                __                     
+                |  _  _  _  _    |_  __ o  _  _  _  _ __ 
+               _|__> (_|(_|(_    |__ |  | (_ _> _> (_)| |${ANSI.reset}
+
+                 Welcome and try help to get started!
+-----------------------------------------------------------------------
+      `;
+
+  const introMobile = () =>
+    String.raw`${ANSI.brightYellow}Welcome!${ANSI.reset}
+    Type ${ANSI.bold}${ANSI.magenta}help${ANSI.reset} to get started.
+    `;
+
   function setCookie(name, value, days = 7) {
     const maxAge = days * 24 * 60 * 60; // seconds
     document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(
@@ -186,17 +205,8 @@ window.addEventListener("DOMContentLoaded", () => {
   };
 
   if (state.lines.length === 0) {
-    writelnRecord(
-      String.raw` 
------------------------------------------------------------------------${ANSI.brightYellow}
-               ___                __                     
-                |  _  _  _  _    |_  __ o  _  _  _  _ __ 
-               _|__> (_|(_|(_    |__ |  | (_ _> _> (_)| |${ANSI.reset}
-
-                 Welcome and try help to get started!
------------------------------------------------------------------------
-      `
-    );
+    const text = isMobileLike() ? introMobile() : introDesktop();
+    writelnRecord(text);
     writelnRecord("");
   }
   prompt();
