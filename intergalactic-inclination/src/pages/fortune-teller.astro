@@ -4,51 +4,84 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Map">
   <div class = "fortune-page">
-  <div class="parallax" data-parallax>
-      <div class="layer bg-back"  data-depth="0.10"></div>
-      <div class="layer bg-mid"   data-depth="0.30"></div>
-      <div class="layer bg-front" data-depth="0.60"></div>
-      <main class="hero">
+    <div class="parallax" data-parallax>
+        <div class="layer bg-back"  data-depth="0.10"></div>
+        <div class="layer bg-mid"   data-depth="0.30"></div>
+        <div class="layer bg-front" data-depth="0.60"></div>
+        
+          <div class="page-background"></div>
+            <main class="hero">
 
-      <div class="term-wrap">
-        <div class="term-pad">
-          <div id="terminal"></div>
+            <div class="term-wrap">
+              <div class="term-pad">
+                <div id="terminal"></div>
+              </div>
+            </div>
+
+            <div class="content-col">
+            <h1>The Fortune Teller</h1>
+
+              <pre class="ascii-map">
+          , ` , `|[?] [ ] , ` , `
+      ( * , ` , ` , ` [ ] ( * , ` , `
+      , ` , ` , ` , ` [ ] , ` [ ] [?]
+      , ` [ ] [ ] [ ] [#] [ ] [ ] [ ]
+      [?] [ ] , ` , ` [ ] , ` , ` , `
+      , ` , ` , ` , ` [ ] , ` , ` , `
+          , ` , ` ; ; [ ] [?] , `
+            </pre>
+
+              <p>
+              As you enter the smaller pale purple tent the air stills. On a small
+              oak table in the center sits a crystal ball coated in frost. The
+              inside of the tent is pitch black and looking up you see what could be
+              a pattern of constallations or start however as you blink it gets
+              difficult to distinguish from the tent. You get both the feeling that 
+              someone was just here and that you are being watched.
+              </p>
+
+              <p>
+              As you enter the smaller pale purple tent the air stills. On a small
+              oak table in the center sits a crystal ball coated in frost. The
+              inside of the tent is pitch black and looking up you see what could be
+              a pattern of constallations or start however as you blink it gets
+              difficult to distinguish from the tent. You get both the feeling that 
+              someone was just here and that you are being watched.
+              </p>
+
+              <p>
+              As you enter the smaller pale purple tent the air stills. On a small
+              oak table in the center sits a crystal ball coated in frost. The
+              inside of the tent is pitch black and looking up you see what could be
+              a pattern of constallations or start however as you blink it gets
+              difficult to distinguish from the tent. You get both the feeling that 
+              someone was just here and that you are being watched.
+              </p>
+
+              <p>
+              As you enter the smaller pale purple tent the air stills. On a small
+              oak table in the center sits a crystal ball coated in frost. The
+              inside of the tent is pitch black and looking up you see what could be
+              a pattern of constallations or start however as you blink it gets
+              difficult to distinguish from the tent. You get both the feeling that 
+              someone was just here and that you are being watched.
+              </p>
+              
+              </div>
+            </main>
         </div>
       </div>
-      <h1>The Fortune Teller</h1>
-
-        <pre class="ascii-map">
-    , ` , `|[?] [ ] , ` , `
-( * , ` , ` , ` [ ] ( * , ` , `
-, ` , ` , ` , ` [ ] , ` [ ] [?]
-, ` [ ] [ ] [ ] [#] [ ] [ ] [ ]
-[?] [ ] , ` , ` [ ] , ` , ` , `
-, ` , ` , ` , ` [ ] , ` , ` , `
-    , ` , ` ; ; [ ] [?] , `
-      </pre>
-
-        <p>
-        As you enter the smaller pale purple tent the air stills. On a small
-        oak table in the center sits a crystal ball coated in frost. The
-        inside of the tent is pitch black and looking up you see what could be
-        a pattern of constallations or start however as you blink it gets
-        difficult to distinguish from the tent. You get both the feeling that 
-        someone was just here and that you are being watched.
-        </p>
-    
-      </main>
-    </div>
   </div>
 <style>
     .fortune-page {
       position: relative;
-      height: 100vh;
       background: #000;
     }
 
     .parallax {
     position: relative;
     min-height: 100vh;
+    overflow: hidden;
   }
 
 :root { --bleed: 80px; }
