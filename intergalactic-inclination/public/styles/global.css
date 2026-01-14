@@ -37,7 +37,6 @@ html { -webkit-text-size-adjust: 100%; }
   position: absolute;
   inset: 0;
   top: var(--banner-h);
-  bottom: 0;
   background: #0a1627;      
   z-index: 3;             
 }
@@ -87,9 +86,15 @@ html { -webkit-text-size-adjust: 100%; }
   width: 100%;
 }
 
+#terminal,
 #terminal .xterm,
+#terminal .xterm-screen,
 #terminal .xterm-viewport {
-  height: auto;      
+  height: 100%;
+}
+
+#terminal .xterm-viewport {
+  overflow-y: auto;
 }
 
 .term-wrap, .term-wrap * { text-align: left !important; }
