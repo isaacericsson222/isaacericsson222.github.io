@@ -33,8 +33,8 @@ window.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("pointermove", onMove, { passive: true });
 
   function animate() {
-    currentX += (targetX - currentX) * 0.1;
-    currentY += (targetY - currentY) * 0.1;
+    currentX += (targetX - currentX) * 0.05;
+    currentY += (targetY - currentY) * 0.05;
 
     const max = 45;
 
