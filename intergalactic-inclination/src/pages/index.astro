@@ -4,25 +4,16 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Map">
   <div class ="shell index-page">
+  <div class="page-background"></div>
     <main class="hero">
       <div class="term-wrap">
         <div class="term-pad">
           <div id="terminal"></div>
         </div>
       </div>
-      <h1>The Circus</h1>
+      <h1 class="panel">About Me</h1>
 
-      <pre class="ascii-map">
-    , ` , `|[ ] [?] , ` , `
-( * , ` , ` [ ] , ` ( * , ` , `
-, ` , ` , ` [ ] , ` , ` [ ] [?]
-, ` [ ] [ ] [#] [ ] [ ] [ ]
-[?] [ ] , ` , ` [ ] , ` , ` , `
-, ` , ` , ` , ` [ ] , ` , ` , `
-    , ` , ` ; ; [ ] [?] , `
-      </pre>
-
-      <p>
+      <p class="panel">
         A large black and white tent looms over as you breathe in the rich
         smell of buttered popcorn. Inside you hear the riotous roar of laughter
         and hear the honking of distant horns. If only you knew where the
@@ -36,4 +27,14 @@ import Layout from "../layouts/Layout.astro";
 
     </main>
   </div>
+  </div>
+  <style>
+  .index-page {
+    position: relative;
+    background: #479fb5; /* the banner color */
+  }
+  .index-page .hero{
+    position: relative;
+  }
+  </style>
 </Layout>

@@ -40,7 +40,7 @@ html, body {
   overscroll-behavior-y: none;
   overflow-x: hidden;
   font-family: var(--font-sans);
-  font-size: 20px;              /* calm default */
+  font-size: 20px;              
   line-height: 1.7;
   letter-spacing: -0.01em;
   font-weight: 400;
@@ -74,12 +74,7 @@ html { -webkit-text-size-adjust: 100%; }
 .shell{
   position: relative;
 }
-.index-page { color: #ffffff; }     
-.index-page h1 { color: white; }     
-.index-page p { 
-  color: #ffffff;
-  box-sizing: border-box;
-}
+
 
 .term-wrap {
   width: min(var(--panel-max), 100%);
