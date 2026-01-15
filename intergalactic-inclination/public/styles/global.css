@@ -1,6 +1,15 @@
 *, *::before, *::after { box-sizing: border-box; }
 
+.dark {
+       --color-primary: #503047;
+  --color-secondary: #506C64;
+  --color-tertiary: #CCAD8F;
+  --color-accent: #B8F3FF;
+    }
+
 :root {
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+               Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
   --banner-h: clamp(260px, 40vh, 500px);
   --content-max: 700px;
   --panel-max: 900px;
@@ -27,9 +36,17 @@ html, body {
   margin: 0;
   width: 100%; 
   min-height: 100%;
-  background: #463b2d;
+  background: #ffffff;
   overscroll-behavior-y: none;
   overflow-x: hidden;
+  font-family: var(--font-sans);
+  font-size: 20px;              /* calm default */
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 html { -webkit-text-size-adjust: 100%; }
 
@@ -37,7 +54,8 @@ html { -webkit-text-size-adjust: 100%; }
   position: absolute;
   inset: 0;
   top: var(--banner-h);
-  background: #0a1627;      
+  background: white;
+  color: var(--color-secondary);
   z-index: 3;             
 }
 
@@ -45,13 +63,11 @@ html { -webkit-text-size-adjust: 100%; }
   position: relative;
   z-index: 5;                 /* above overlay + stars */
   width: 100%;
-  max-width: 655px;
+  max-width: 1000px;
 
   margin: 24px auto 0;
   padding: clamp(14px, 3vw, 24px);
 
-  background: #b1a97b;
-  color: #111;
   border-radius: 18px 18px 0 0; /* optional */
 }
 
@@ -88,7 +104,9 @@ html { -webkit-text-size-adjust: 100%; }
 
 #terminal,
 #terminal .xterm,
-#terminal .xterm-screen,
+#terminal .xterm-screen{
+  background-color: #0b0f14;
+}
 #terminal .xterm-viewport {
   height: 100%;
 }
@@ -117,12 +135,13 @@ pre.ascii-map {
 }
 
 .panel {
-  background: #0a1627;
-  color: #8ee7ff;
+  color: var(--color-black);
   padding: 16px;
   border-radius: 12px;
   margin: 16px auto;
   line-height: 1.6;
   max-width: 800px;
 }
-.panel.title { max-width: 600px; }
+a, .accent {
+  color: var(--color-accent);
+}

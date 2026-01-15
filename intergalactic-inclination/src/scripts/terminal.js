@@ -5,8 +5,9 @@ import "@xterm/xterm/css/xterm.css";
 window.addEventListener("DOMContentLoaded", () => {
   const el = document.getElementById("terminal");
   const COOKIE_NAME = "term_statev1";
+  const stripAnsi = (s) => s.replace(/\x1b\[[0-9;]*m/g, "");
+
   if (!el) return;
-  const fgRGB = (r, g, b) => `\x1b[38;2;${r};${g};${b}m`;
   const ANSI = {
     reset: "\x1b[0m",
     bold: "\x1b[1m",
@@ -31,6 +32,60 @@ window.addEventListener("DOMContentLoaded", () => {
     brightYellow: "\x1b[93m",
     brightMagenta: "\x1b[95m",
   };
+  // Wrap a string to `cols`, breaking on spaces. Preserves existing newlines.
+  function wrapTextByWords(text, cols) {
+    const out = [];
+    const paragraphs = String(text).split(/\r?\n/);
+
+    for (const p of paragraphs) {
+      // keep blank lines
+      if (p.trim() === "") {
+        out.push("");
+        continue;
+      }
+
+      const words = p.split(/\s+/);
+      let line = "";
+
+      for (const w of words) {
+        const next = line ? `${line} ${w}` : w;
+
+        if (stripAnsi(next).length <= cols) {
+          line = next;
+          continue;
+        }
+
+        if (line) out.push(line);
+
+        // If a single word is longer than the terminal width, hard-break it.
+        if (stripAnsi(w).length > cols) {
+          let rest = w;
+          while (stripAnsi(rest).length > cols) {
+            out.push(rest.slice(0, cols));
+            rest = rest.slice(cols);
+          }
+          line = rest;
+        } else {
+          line = w;
+        }
+      }
+
+      if (line) out.push(line);
+    }
+
+    return out;
+  }
+
+  // Use this instead of term.writeln(text) for long prose.
+  function writelnRecordWrapped(text) {
+    const cols = Math.max(10, term.cols || 80);
+    for (const line of wrapTextByWords(text, cols)) {
+      term.writeln(line);
+      state.lines.push(line);
+    }
+    saveState(state);
+    term.scrollToBottom();
+  }
 
   const isMobileLike = () =>
     window.matchMedia("(max-width: 767px)").matches || term.cols < 70;
@@ -147,22 +202,17 @@ window.addEventListener("DOMContentLoaded", () => {
   };
   const printHelp = () => {
     writelnRecord(
-      `${ANSI.bold}${ANSI.magenta}help${ANSI.reset}      Prints this help message`
+      `${ANSI.bold}${ANSI.magenta}ls${ANSI.reset}        Shows a directory structure`
     );
-    writelnRecord(
-      `${ANSI.bold}${ANSI.magenta}ls${ANSI.reset}        Prints a fake directory structure`
-    );
-    writelnRecord(
-      `${ANSI.bold}${ANSI.magenta}about${ANSI.reset}     About this site`
-    );
+    writelnRecord(`${ANSI.bold}${ANSI.magenta}about${ANSI.reset}     About me`);
     writelnRecord(
       `${ANSI.bold}${ANSI.magenta}clear${ANSI.reset}     Clears the screen`
     );
     writelnRecord(
-      `${ANSI.bold}${ANSI.magenta}e/east${ANSI.reset}     Go to fortune-teller (only from /)`
+      `${ANSI.bold}${ANSI.magenta}e/east${ANSI.reset}     Go to fortune-teller`
     );
     writelnRecord(
-      `${ANSI.bold}${ANSI.magenta}w/west${ANSI.reset}     Go back home (only from /fortune-teller)`
+      `${ANSI.bold}${ANSI.magenta}w/west${ANSI.reset}     Go back home`
     );
   };
 
@@ -191,13 +241,19 @@ window.addEventListener("DOMContentLoaded", () => {
         if (
           window.location.pathname === "/" ||
           window.location.pathname === "/index.html"
-        )
+        ) {
           window.location.href = "/fortune-teller/";
+          writelnRecordWrapped(`As you enter the smaller pale purple tent the air stills. On a small
+oak table in the center sits a crystal ball coated in frost. The
+inside of the tent is pitch black and looking up you see what could be
+a pattern of constellations or stars however. You get the feeling someone was just here.`);
+        }
         return;
       case "w":
       case "west":
-        if (window.location.pathname === "/fortune-teller/")
+        if (window.location.pathname === "/fortune-teller/") {
           window.location.href = "/";
+        }
         return;
       default:
         writelnRecord(`${ANSI.gray}command not found:${ANSI.reset} ${cmd}`);
