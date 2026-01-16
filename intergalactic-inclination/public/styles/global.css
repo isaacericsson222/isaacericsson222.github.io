@@ -37,6 +37,12 @@
     max-width: 90%;
     padding: clamp(12px, 3vw, 24px); /* Adjust padding for mobile */
   }
+
+  .term-wrap {
+    max-width: 100%;
+    width: calc(100vw - 32px);
+    margin: 0 auto;
+  }
 }
 
 html, body {
@@ -75,7 +81,7 @@ html { -webkit-text-size-adjust: 100%; }
 .content-col{
   margin: 0 auto;
   max-width: var(--content-max);
-  padding: clamp(20px, 5vw, 40px); /* Increase padding */
+  padding: clamp(20px, 5vw, 40px);
   overflow-x: hidden;
   position: relative;
   box-sizing: border-box;
@@ -87,8 +93,9 @@ html { -webkit-text-size-adjust: 100%; }
   gap: 16px;
   justify-content: center;
   align-items: center;
-  width: 100%; 
-  padding: clamp(16px, 4vw, 32px); /* Add padding for spacing */
+  width: 100%;
+  min-width: 0;
+  padding: clamp(16px, 4vw, 32px);
 }
 
 .hero-top {
@@ -96,6 +103,9 @@ html { -webkit-text-size-adjust: 100%; }
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .hero-top .term-wrap {
@@ -111,12 +121,13 @@ html { -webkit-text-size-adjust: 100%; }
 
 .term-wrap {
   width: 100%;
-  max-width: var(--panel-max);
+  max-width: min(var(--panel-max), 100%);
   height: min(320px, 50vh);
   border: 1px solid #333;
   border-radius: 12px;
   background: #0b0f14;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .term-pad {
@@ -134,9 +145,13 @@ html { -webkit-text-size-adjust: 100%; }
 #terminal .xterm,
 #terminal .xterm-screen{
   background-color: #0b0f14;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 #terminal .xterm-viewport {
   height: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 #terminal .xterm-viewport {
