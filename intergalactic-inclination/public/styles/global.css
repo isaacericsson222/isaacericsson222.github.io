@@ -25,13 +25,6 @@
   :root { --content-max: 760px; }
 }
 
-.hero {
-  text-align: center;   
-  max-width: var(--content-max);
-  margin: 0 auto;      
-  padding: clamp(16px, 4vw, 48px) 16px;
-  z-index: 5
-}
 html, body {
   margin: 0;
   width: 100%; 
@@ -51,6 +44,15 @@ html, body {
 }
 html { -webkit-text-size-adjust: 100%; }
 
+.hero {
+  position: relative;
+  text-align: center;   
+  max-width: var(--content-max);
+  margin: 0 auto;      
+  padding: clamp(16px, 4vw, 48px) 16px;
+  z-index: 5
+}
+
 .page-background{
   position: absolute;
   inset: 0;
@@ -61,15 +63,27 @@ html { -webkit-text-size-adjust: 100%; }
 }
 
 .content-col{
-  position: relative;
-  z-index: 5;                 /* above overlay + stars */
+  margin: 24px auto;            /* CENTER IT */
   width: 100%;
-  max-width: 1000px;
-
-  margin: 24px  0;
+  max-width: var(--content-max); /* IMPORTANT: don’t fight .hero */
   padding: clamp(14px, 3vw, 24px);
+  border-radius: 18px 18px 0 0;
+  position: relative;
+  z-index: 5;
+}
 
-  border-radius: 18px 18px 0 0; /* optional */
+.hero--banner {
+  display: grid;
+  grid-template-rows: var(--banner-h) auto; /* banner area, then content */
+  gap: 16px;
+}
+
+.hero-top {
+  align-self: end;   /* puts the terminal toward the bottom of the banner */
+}
+
+.hero-top .term-wrap {
+  margin-top: 0;     /* overrides your 1.5rem top margin if you want */
 }
 
 .shell{
