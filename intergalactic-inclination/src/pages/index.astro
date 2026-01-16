@@ -98,5 +98,15 @@ import Layout from "../layouts/Layout.astro";
         transform: translateX(160vw);
       }
     }
+
+    @media (max-width: 480px) {
+      .banner-drift {
+        height: calc(var(--banner-h) * 0.6); /* Reduce height for smaller screens */
+      }
+
+      .drifter, .drifter--b {
+        width: clamp(180px, 30vw, 300px); /* Reduce size for smaller screens */
+      }
+    }
   </style>
 </Layout>

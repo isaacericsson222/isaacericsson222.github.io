@@ -21,38 +21,27 @@
   .term-wrap { height: min(360px, 60vh); }
 }
 
-/* Desktop+ */
 @media (min-width: 1024px) {
   :root { --content-max: 760px; }
 }
 
-/* Add tighter constraints for mobile responsiveness */
 @media (max-width: 480px) {
   html, body {
-    font-size: 16px; /* Reduce base font size */
+    font-size: 16px;
   }
 
   .hero {
-    padding: clamp(8px, 2vw, 16px) clamp(6px, 2vw, 12px); /* Reduce padding */
+    padding: clamp(8px, 2vw, 16px) clamp(6px, 2vw, 12px);
   }
 
   .hero--banner {
-    grid-template-rows: auto auto; /* Simplify grid layout */
-    gap: 8px; /* Reduce gap */
+    grid-template-rows: auto auto;
+    gap: 8px;
   }
 
   .content-col {
-    max-width: 90%; /* Reduce max-width for smaller screens */
-    padding: clamp(8px, 2vw, 16px); /* Adjust padding */
-  }
-
-  .panel {
-    padding: 12px; /* Smaller panel padding */
-    margin: 12px auto; /* Reduce margin */
-  }
-
-  .term-wrap {
-    height: min(240px, 40vh); /* Reduce terminal height */
+    max-width: 90%;
+    padding: clamp(8px, 2vw, 16px);
   }
 }
 
@@ -133,7 +122,6 @@ html { -webkit-text-size-adjust: 100%; }
   max-width: 100vw;
   overflow-x: hidden;
 }
-
 
 .term-wrap {
   width: 100%;
