@@ -64,7 +64,7 @@ html { -webkit-text-size-adjust: 100%; }
 }
 
 .content-col{
-  margin: 24px auto;            /* CENTER IT */
+  margin: 0 auto 24px;            /* CENTER IT */
   width: 100%;
   max-width: var(--content-max); /* IMPORTANT: don’t fight .hero */
   padding: clamp(14px, 3vw, 24px);
@@ -83,6 +83,9 @@ html { -webkit-text-size-adjust: 100%; }
 
 .hero-top {
   align-self: end;   /* puts the terminal toward the bottom of the banner */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .hero-top .term-wrap {
@@ -97,7 +100,6 @@ html { -webkit-text-size-adjust: 100%; }
 .term-wrap {
   width: 100%;
   max-width: var(--panel-max);
-  margin: 1.5rem auto 0;
   height: min(320px, 50vh);
   border: 1px solid #333;
   border-radius: 12px;
