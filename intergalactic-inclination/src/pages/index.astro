@@ -3,14 +3,14 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Map">
-  <div class ="shell index-page">
-  <div class="page-background"></div>
-
+  <div class="shell index-page">
+    <div class="page-background"></div>
+    
     <div class="banner-drift" aria-hidden="true">
       <img class="drifter drifter--a" src="/styles/pngs/clouds1.png" alt="" />
       <img class="drifter drifter--b" src="/styles/pngs/clouds2.png" alt="" />
-
     </div>
+    
     <main class="hero hero--banner">
       <div class="hero-top">
         <div class="term-wrap">
@@ -21,92 +21,76 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <div class="content-col">
-      <h1 class="panel">About Me</h1>
+        <h1 class="panel">About Me</h1>
+        
+        <p class="panel">
+          I am a Computer Science student at Cal Poly San Luis Obispo. I enjoy
+          reading, playing D&D, and sailing while learning about programming.
+          Currently I am learning about Data Engineering and programming in R,
+          though I am also interested in learning more about AI and Machine Learning.
+        </p>
 
-      <p class="panel">
-        I am a Computer Science student at Cal Poly San Luis Obispo. I enjoy
-        reading, playing D&D, and sailing while learning about programming.
-        Currently I am learning about Data Engineering and programming in R,
-        though I am also interested in learning more about AI and Machine Learning.
-      </p>
+        <p class="panel">
+          This website serves as a way for me to tell people more about myself
+          and to put personal projects online. I can also put anything I find
+          randomly interesting on here as a way to collect my own ideas.
+        </p>
 
-      <p class="panel">
-        This website serves as a way for me to tell people more about myself
-        and to put personal projects online. I can also put anything I find
-        randomly interesting on here as a way to collect my own ideas.
-      </p>
-
-      <p class="panel">
-        This site functions similarly to old text based games where you navigate 
-        a world using your terminal. Use help to see what commands are available and
-        navigate through the world using the cardinal directions. This will let you 
-        get to other pages on this site as well as find some small secrets.
-      </p>
-
-      <script>
-        import "../scripts/terminal.js";
-      </script>
-    </div>
+        <p class="panel">
+          This site functions similarly to old text based games where you navigate 
+          a world using your terminal. Use help to see what commands are available and
+          navigate through the world using the cardinal directions. This will let you 
+          get to other pages on this site as well as find some small secrets.
+        </p>
+      </div>
     </main>
   </div>
-  </div>
-  <style>
-  
+</Layout>
+
+<style>
   .index-page {
     position: relative;
     background: #419092;
+    --banner-bleed: 40px;
   }
-  .index-page .hero{
-    position: relative;
-  }
+
   .banner-drift {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: calc(var(--banner-bleed) * -1);
-      height: calc(var(--banner-h) + var(--banner-bleed));
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 2;
-    }
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(var(--banner-bleed) * -1);
+    height: calc(var(--banner-h) + var(--banner-bleed));
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 4;
+  }
 
-    .drifter {
-      position: absolute;
-      top: 48%;
-      width: clamp(260px, 40vw, 580px);
-      height: auto;
+  .drifter {
+    position: absolute;
+    top: 48%;
+    left: -35%;
+    width: clamp(260px, 40vw, 580px);
+    height: auto;
+    animation: driftAcross 500s linear infinite;
+    image-rendering: pixelated;
+  }
 
-      left: -35%;
+  .drifter--b {
+    top: -10%;
+    animation-delay: -250s;
+  }
 
-      animation: driftAcross 500s linear infinite;
-      image-rendering: pixelated;
-    }
+  @keyframes driftAcross {
+    from { transform: translateX(0); }
+    to { transform: translateX(160vw); }
+  }
 
-    .drifter--b {
-      top: -10%;
-      width: clamp(260px, 40vw, 580px);
-      animation: driftAcross 500s linear infinite;
-      animation-delay: -250s; 
-      image-rendering: pixelated;
-    }
+  @media (max-width: 480px) {
+    .banner-drift { height: calc(var(--banner-h) * 0.6); }
+    .drifter { width: clamp(180px, 30vw, 300px); }
+  }
+</style>
 
-    @keyframes driftAcross {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(160vw);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .banner-drift {
-        height: calc(var(--banner-h) * 0.6); /* Reduce height for smaller screens */
-      }
-
-      .drifter, .drifter--b {
-        width: clamp(180px, 30vw, 300px); /* Reduce size for smaller screens */
-      }
-    }
-  </style>
-</Layout>
+<script>
+  import "../scripts/terminal.js";
+</script>
