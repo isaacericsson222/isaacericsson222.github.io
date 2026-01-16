@@ -33,11 +33,17 @@
   }
 
   .hero {
-    padding: clamp(8px, 2vw, 16px) clamp(8px, 2vw, 12px); /* Tighter padding */
+    padding: clamp(8px, 2vw, 16px) clamp(6px, 2vw, 12px); /* Reduce padding */
+  }
+
+  .hero--banner {
+    grid-template-rows: auto auto; /* Simplify grid layout */
+    gap: 8px; /* Reduce gap */
   }
 
   .content-col {
-    padding: clamp(8px, 2vw, 16px); /* Reduce padding */
+    max-width: 90%; /* Reduce max-width for smaller screens */
+    padding: clamp(8px, 2vw, 16px); /* Adjust padding */
   }
 
   .panel {
