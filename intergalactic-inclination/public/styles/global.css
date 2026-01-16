@@ -46,6 +46,7 @@ html { -webkit-text-size-adjust: 100%; }
 
 .hero {
   position: relative;
+  width: 100%;
   text-align: center;   
   max-width: var(--content-max);
   margin: 0 auto;      
@@ -76,6 +77,8 @@ html { -webkit-text-size-adjust: 100%; }
   display: grid;
   grid-template-rows: var(--banner-h) auto; /* banner area, then content */
   gap: 16px;
+  justify-self: center;   /* center each row inside the grid */
+  width: 100%; 
 }
 
 .hero-top {
@@ -92,7 +95,8 @@ html { -webkit-text-size-adjust: 100%; }
 
 
 .term-wrap {
-  width: min(var(--panel-max), 100%);
+  width: 100%;
+  max-width: var(--panel-max);
   margin: 1.5rem auto 0;
   height: min(320px, 50vh);
   border: 1px solid #333;
@@ -150,7 +154,7 @@ pre.ascii-map {
   border-radius: 12px;
   margin: 16px auto;
   line-height: 1.6;
-  max-width: 800px;
+  max-width: min(800px, 100%);
 }
 a, .accent {
   color: var(--color-accent);
