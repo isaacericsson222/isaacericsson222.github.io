@@ -6,58 +6,10 @@
 		<title>Isaac Ericsson</title>
 		<meta name="generator" content={Astro.generator} />
 		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
-   	 	<link rel="stylesheet" href={`${import.meta.env.BASE_URL}styles/global.css`} />
+    	 	<link rel="stylesheet" href={`${import.meta.env.BASE_URL}styles/global.css`} />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-		<style>
-  .hero {
-    position: relative;
-    width: 100%;
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: clamp(16px, 4vw, 48px) clamp(12px, 3vw, 16px);
-    z-index: 5;
-    box-sizing: border-box;
-  }
-
-  .banner-drift {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: calc(-80px);
-    height: calc(40vh + 80px);
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  .drifter {
-    position: absolute;
-    top: 48%;
-    width: clamp(260px, 40vw, 580px);
-    height: auto;
-    left: -35%;
-    animation: driftAcross 500s linear infinite;
-    image-rendering: pixelated;
-  }
-
-  .drifter--b {
-    top: -10%;
-    width: clamp(260px, 40vw, 580px);
-    animation-delay: -250s;
-  }
-
-  @keyframes driftAcross {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(160vw);
-    }
-  }
-</style>
 	</head>
 	<body>
 		<slot/>
