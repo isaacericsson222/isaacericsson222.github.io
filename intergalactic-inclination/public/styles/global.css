@@ -37,7 +37,7 @@ html, body {
   width: 100%; 
   min-height: 100%;
   background: #ffffff;
-  overscroll-behavior-y: auto;
+  overscroll-behavior-y: none;
   overflow-x: hidden;
   font-family: var(--font-sans);
   font-size: 20px;              

@@ -56,13 +56,16 @@ import Layout from "../layouts/Layout.astro";
   .index-page .hero{
     position: relative;
   }
-  
+  :root {
+  --banner-h: clamp(260px, 40vh, 500px);
+  --banner-bleed: 80px; /* how far it extends above the top */
+}
   .banner-drift {
       position: absolute;
       left: 0;
       right: 0;
-      top: 0;
-      height: var(--banner-h);
+      top: calc(var(--banner-bleed) * -1);
+      height: calc(var(--banner-h) + var(--banner-bleed));
       overflow: hidden;
       pointer-events: none;
       z-index: 2; /* below content, above banner background */
@@ -70,7 +73,7 @@ import Layout from "../layouts/Layout.astro";
 
     .drifter {
       position: absolute;
-      top: 18%;
+      top: 26%;
       width: clamp(580px, 18vw, 260px);
       height: auto;
 
@@ -86,7 +89,8 @@ import Layout from "../layouts/Layout.astro";
       top: -10%;
       width: clamp(580px, 18vw, 260px);
       animation: driftAcross 500s linear infinite;
-      animation-delay: -250s; /* half of 22s so it's already mid-flight */
+      animation-delay: -250s; 
+      image-rendering: pixelated;
     }
 
     @keyframes driftAcross {
