@@ -26,6 +26,29 @@
   :root { --content-max: 760px; }
 }
 
+/* Add tighter constraints for mobile responsiveness */
+@media (max-width: 480px) {
+  html, body {
+    font-size: 16px; /* Reduce base font size */
+  }
+
+  .hero {
+    padding: clamp(8px, 2vw, 16px) clamp(8px, 2vw, 12px); /* Tighter padding */
+  }
+
+  .content-col {
+    padding: clamp(8px, 2vw, 16px); /* Reduce padding */
+  }
+
+  .panel {
+    padding: 12px; /* Smaller panel padding */
+    margin: 12px auto; /* Reduce margin */
+  }
+
+  .term-wrap {
+    height: min(240px, 40vh); /* Reduce terminal height */
+  }
+}
 
 html, body {
   margin: 0;
