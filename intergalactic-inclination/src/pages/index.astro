@@ -5,6 +5,13 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Map">
   <div class ="shell index-page">
   <div class="page-background"></div>
+
+    <div class="banner-drift" aria-hidden="true">
+      <img class="drifter drifter--a" src="/styles/pngs/clouds1.png" alt="" />
+      <img class="drifter drifter--b" src="/styles/pngs/clouds2.png" alt="" />
+
+    </div>
+  <div class="page-background"></div>
     <main class="hero">
       <div class="term-wrap">
         <div class="term-pad">
@@ -14,11 +21,23 @@ import Layout from "../layouts/Layout.astro";
       <h1 class="panel">About Me</h1>
 
       <p class="panel">
-        A large black and white tent looms over as you breathe in the rich
-        smell of buttered popcorn. Inside you hear the riotous roar of laughter
-        and hear the honking of distant horns. If only you knew where the
-        enterance was you could perhaps join the fun? A sign hangs nearby on
-        a gnarled old tree barren of leaves.
+        I am a Computer Science student at Cal Poly San Luis Obispo. I enjoy
+        reading, playing D&D, and sailing while learning about programming.
+        Currently I am learning about Data Engineering and programming in R,
+        though I am also interested in learning more about AI and Machine Learning.
+      </p>
+
+      <p class="panel">
+        This website serves as a way for me to tell people more about myself
+        and to put personal projects online. I can also put anything I find
+        randomly interesting on here as a way to collect my own ideas.
+      </p>
+
+      <p class="panel">
+        This site functions similarly to old text based games where you navigate 
+        a world using your terminal. Use help to see what commands are available and
+        navigate through the world using the cardinal directions. This will let you 
+        get to other pages on this site as well as find some small secrets.
       </p>
 
       <script>
@@ -29,12 +48,54 @@ import Layout from "../layouts/Layout.astro";
   </div>
   </div>
   <style>
+  
   .index-page {
     position: relative;
-    background: #479fb5; /* the banner color */
+    background: #419092; /* the banner color */
   }
   .index-page .hero{
     position: relative;
   }
+  
+  .banner-drift {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: var(--banner-h);
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 2; /* below content, above banner background */
+    }
+
+    .drifter {
+      position: absolute;
+      top: 18%;
+      width: clamp(580px, 18vw, 260px);
+      height: auto;
+
+      /* start off-screen left */
+      left: -35%;
+
+      animation: driftAcross 500s linear infinite;
+      image-rendering: pixelated;
+    }
+
+    /* second copy to reduce “dead time” between loops */
+    .drifter--b {
+      top: -10%;
+      width: clamp(580px, 18vw, 260px);
+      animation: driftAcross 500s linear infinite;
+      animation-delay: -250s; /* half of 22s so it's already mid-flight */
+    }
+
+    @keyframes driftAcross {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(160vw); /* travel across + a bit extra */
+      }
+    }
   </style>
 </Layout>
