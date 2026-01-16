@@ -55,14 +55,14 @@ import Layout from "../layouts/Layout.astro";
   
   .index-page {
     position: relative;
-    background: #419092; /* the banner color */
+    background: #419092;
   }
   .index-page .hero{
     position: relative;
   }
   :root {
   --banner-h: clamp(260px, 40vh, 500px);
-  --banner-bleed: 80px; /* how far it extends above the top */
+  --banner-bleed: 80px;
 }
   .banner-drift {
       position: absolute;
@@ -72,7 +72,7 @@ import Layout from "../layouts/Layout.astro";
       height: calc(var(--banner-h) + var(--banner-bleed));
       overflow: hidden;
       pointer-events: none;
-      z-index: 2; /* below content, above banner background */
+      z-index: 2;
     }
 
     .drifter {
@@ -81,14 +81,12 @@ import Layout from "../layouts/Layout.astro";
       width: clamp(260px, 40vw, 580px);
       height: auto;
 
-      /* start off-screen left */
       left: -35%;
 
       animation: driftAcross 500s linear infinite;
       image-rendering: pixelated;
     }
 
-    /* second copy to reduce “dead time” between loops */
     .drifter--b {
       top: -10%;
       width: clamp(260px, 40vw, 580px);
@@ -102,7 +100,7 @@ import Layout from "../layouts/Layout.astro";
         transform: translateX(0);
       }
       to {
-        transform: translateX(160vw); /* travel across + a bit extra */
+        transform: translateX(160vw);
       }
     }
   </style>

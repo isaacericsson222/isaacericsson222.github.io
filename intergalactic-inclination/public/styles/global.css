@@ -25,6 +25,18 @@
   :root { --content-max: 760px; }
 }
 
+@supports (height: 1svh) {
+  :root {
+    --banner-h: clamp(260px, 40svh, 500px);
+  }
+  .term-wrap {
+    height: min(320px, 50svh);
+  }
+  @media (min-width: 768px) {
+    .term-wrap { height: min(360px, 60svh); }
+  }
+}
+
 html, body {
   margin: 0;
   width: 100%; 
@@ -64,9 +76,9 @@ html { -webkit-text-size-adjust: 100%; }
 }
 
 .content-col{
-  margin: 0 auto 24px;            /* CENTER IT */
+  margin: 0 auto 24px;
   width: 100%;
-  max-width: var(--content-max); /* IMPORTANT: don’t fight .hero */
+  max-width: var(--content-max);
   padding: clamp(14px, 3vw, 24px);
   border-radius: 18px 18px 0 0;
   position: relative;
@@ -75,21 +87,21 @@ html { -webkit-text-size-adjust: 100%; }
 
 .hero--banner {
   display: grid;
-  grid-template-rows: var(--banner-h) auto; /* banner area, then content */
+  grid-template-rows: var(--banner-h) auto;
   gap: 16px;
-  justify-self: center;   /* center each row inside the grid */
+  justify-self: center;
   width: 100%; 
 }
 
 .hero-top {
-  align-self: end;   /* puts the terminal toward the bottom of the banner */
+  align-self: end;
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
 
 .hero-top .term-wrap {
-  margin-top: 0;     /* overrides your 1.5rem top margin if you want */
+  margin-top: 0;
 }
 
 .shell{
