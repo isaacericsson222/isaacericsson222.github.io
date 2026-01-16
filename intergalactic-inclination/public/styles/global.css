@@ -38,6 +38,7 @@ html, body {
   min-height: 100%;
   background: #ffffff;
   overscroll-behavior-y: none;
+  overscroll-behavior: none;
   overflow-x: hidden;
   font-family: var(--font-sans);
   font-size: 20px;              
