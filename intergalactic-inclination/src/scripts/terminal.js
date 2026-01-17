@@ -109,7 +109,7 @@ window.addEventListener("DOMContentLoaded", () => {
   function setCookie(name, value, days = 7) {
     const maxAge = days * 24 * 60 * 60; // seconds
     document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(
-      value
+      value,
     )}; Path=/; Max-Age=${maxAge}; SameSite=Lax`;
   }
 
@@ -202,17 +202,17 @@ window.addEventListener("DOMContentLoaded", () => {
   };
   const printHelp = () => {
     writelnRecord(
-      `${ANSI.bold}${ANSI.magenta}ls${ANSI.reset}        Shows a directory structure`
+      `${ANSI.bold}${ANSI.magenta}ls${ANSI.reset}        Shows a directory structure`,
     );
     writelnRecord(`${ANSI.bold}${ANSI.magenta}about${ANSI.reset}     About me`);
     writelnRecord(
-      `${ANSI.bold}${ANSI.magenta}clear${ANSI.reset}     Clears the screen`
+      `${ANSI.bold}${ANSI.magenta}clear${ANSI.reset}     Clears the screen`,
     );
     writelnRecord(
-      `${ANSI.bold}${ANSI.magenta}e/east${ANSI.reset}     Go to fortune-teller`
+      `${ANSI.bold}${ANSI.magenta}e/east${ANSI.reset}     Go to fortune-teller`,
     );
     writelnRecord(
-      `${ANSI.bold}${ANSI.magenta}w/west${ANSI.reset}     Go back home`
+      `${ANSI.bold}${ANSI.magenta}w/west${ANSI.reset}     Go back home`,
     );
   };
 
@@ -230,6 +230,16 @@ window.addEventListener("DOMContentLoaded", () => {
       case "clear":
         clearRecord();
         break;
+      case "look":
+        if (
+          window.location.pathname === "/" ||
+          window.location.pathname === "/index.html"
+        )
+          writelnRecordWrapped(
+            `To the east lies a purple tent, to the south a creek mumbles, to the west a barren field, and to the north lies the summet`,
+          );
+        else writelnRecord(`Where?`);
+        break;
       case "ls":
         writelnRecord(`${ANSI.green}Hi\r\nthere${ANSI.reset}`);
         break;
@@ -246,7 +256,7 @@ window.addEventListener("DOMContentLoaded", () => {
           writelnRecordWrapped(`As you enter the smaller pale purple tent the air stills. On a small
 oak table in the center sits a crystal ball coated in frost. The
 inside of the tent is pitch black and looking up you see what could be
-a pattern of constellations or stars however. You get the feeling someone was just here.`);
+a pattern of constellations or stars. You get the feeling someone was just here.`);
         }
         return;
       case "w":
@@ -264,6 +274,7 @@ a pattern of constellations or stars however. You get the feeling someone was ju
     const text = isMobileLike() ? introMobile() : introDesktop();
     writelnRecord(text);
     writelnRecord("");
+    writelnRecord("You are in a field, maybe look around?");
   }
   prompt();
 
