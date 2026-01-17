@@ -139,7 +139,7 @@ html, body {
   gap: 2rem;
   max-width: 1600px;
   margin: 0 auto;
-  padding: 0rem 2rem 2rem 4rem;
+  padding: 0rem 2rem 2rem 2rem;
   align-items: start;
 }
 
