@@ -263,6 +263,7 @@ a pattern of constellations or stars. You get the feeling someone was just here.
       case "west":
         if (window.location.pathname === "/fortune-teller/") {
           window.location.href = "/";
+          writelnRecord(`You enter the crossroads`);
         }
         return;
       default:
