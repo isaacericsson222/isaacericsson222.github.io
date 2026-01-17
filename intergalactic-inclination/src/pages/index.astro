@@ -5,12 +5,14 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Map">
   <div class="shell index-page">
     <div class="page-background"></div>
-    
+
     <div class="banner-drift" aria-hidden="true">
       <img class="drifter drifter--a" src="/styles/pngs/clouds1.png" alt="" />
       <img class="drifter drifter--b" src="/styles/pngs/clouds2.png" alt="" />
+      <img class="drifter drifter--c" src="/styles/pngs/clouds1.png" alt="" />
+      <img class="drifter drifter--d" src="/styles/pngs/clouds2.png" alt="" />
     </div>
-    
+
     <main class="hero hero--banner">
       <div class="hero-top">
         <div class="term-wrap">
@@ -21,13 +23,14 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <div class="content-col">
-        <h1 class="panel">About Me</h1>
-        
+        <h1 class="panel-head">About Me</h1>
+
         <p class="panel">
           I am a Computer Science student at Cal Poly San Luis Obispo. I enjoy
           reading, playing D&D, and sailing while learning about programming.
           Currently I am learning about Data Engineering and programming in R,
-          though I am also interested in learning more about AI and Machine Learning.
+          though I am also interested in learning more about AI and Machine
+          Learning.
         </p>
 
         <p class="panel">
@@ -37,10 +40,11 @@ import Layout from "../layouts/Layout.astro";
         </p>
 
         <p class="panel">
-          This site functions similarly to old text based games where you navigate 
-          a world using your terminal. Use help to see what commands are available and
-          navigate through the world using the cardinal directions. This will let you 
-          get to other pages on this site as well as find some small secrets.
+          This site functions similarly to old text based games where you
+          navigate a world using your terminal. Use help to see what commands
+          are available and navigate through the world using the cardinal
+          directions. This will let you get to other pages on this site as well
+          as find some small secrets.
         </p>
       </div>
     </main>
@@ -77,17 +81,35 @@ import Layout from "../layouts/Layout.astro";
 
   .drifter--b {
     top: -10%;
+    animation-delay: -125s;
+  }
+
+  .drifter--c {
+    top: 30%;
     animation-delay: -250s;
   }
 
+  .drifter--d {
+    top: 60%;
+    animation-delay: -375s;
+  }
+
   @keyframes driftAcross {
-    from { transform: translateX(0); }
-    to { transform: translateX(160vw); }
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(160vw);
+    }
   }
 
   @media (max-width: 480px) {
-    .banner-drift { height: calc(var(--banner-h) * 0.6); }
-    .drifter { width: clamp(180px, 30vw, 300px); }
+    .banner-drift {
+      height: calc(var(--banner-h) * 0.6);
+    }
+    .drifter {
+      width: clamp(180px, 30vw, 300px);
+    }
   }
 </style>
 

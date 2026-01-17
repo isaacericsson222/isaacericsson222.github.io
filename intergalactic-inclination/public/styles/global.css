@@ -105,6 +105,16 @@ html, body {
   border-radius: 12px;
   line-height: 1.6;
   max-width: min(800px, 100%);
+  text-align: left;
+}
+
+.panel-head {
+  padding: 16px;
+  margin: 16px auto;
+  border-radius: 12px;
+  line-height: 1.6;
+  max-width: min(800px, 100%);
+  text-align: center;
 }
 
 @media (min-width: 768px) {
