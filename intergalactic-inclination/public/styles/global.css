@@ -146,7 +146,7 @@ html, body {
 .sticky-left,
 .sticky-right {
   position: sticky;
-  top: 2rem;
+  top: 6rem;
   height: fit-content;
 }
 
