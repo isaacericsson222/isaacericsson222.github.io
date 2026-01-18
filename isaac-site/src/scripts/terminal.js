@@ -212,7 +212,7 @@ window.addEventListener("DOMContentLoaded", () => {
       `${ANSI.bold}${ANSI.magenta}e/east${ANSI.reset}     Go to fortune-teller`,
     );
     writelnRecord(
-      `${ANSI.bold}${ANSI.magenta}n/north${ANSI.reset}    Go to summet`,
+      `${ANSI.bold}${ANSI.magenta}n/north${ANSI.reset}    Go to summit`,
     );
     writelnRecord(
       `${ANSI.bold}${ANSI.magenta}w/west${ANSI.reset}     Go back home`,
@@ -239,7 +239,7 @@ window.addEventListener("DOMContentLoaded", () => {
           window.location.pathname === "/index.html"
         )
           writelnRecordWrapped(
-            `To the east lies a purple tent, to the south a creek mumbles, to the west a barren field, and to the north lies the summet`,
+            `To the east lies a purple tent, to the south a creek mumbles, to the west a barren field, and to the north lies the summit`,
           );
         else writelnRecord(`Where?`);
         break;
@@ -272,13 +272,13 @@ window.addEventListener("DOMContentLoaded", () => {
           window.location.pathname === "/" ||
           window.location.pathname === "/index.html"
         ) {
-          window.location.href = "/summet/";
-          writelnRecord(`You north towards the summet...`);
+          window.location.href = "/summit/";
+          writelnRecord(`You north towards the summit...`);
         }
         return;
       case "s":
       case "south":
-        if (window.location.pathname === "/summet/") {
+        if (window.location.pathname === "/summit/") {
           window.location.href = "/";
           writelnRecord(`You enter the crossroads`);
         }
