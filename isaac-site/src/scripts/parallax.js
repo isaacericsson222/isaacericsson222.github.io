@@ -36,7 +36,7 @@ window.addEventListener("DOMContentLoaded", () => {
     currentX += (targetX - currentX) * 0.05;
     currentY += (targetY - currentY) * 0.05;
 
-    const max = 80;
+    const max = 45;
 
     for (const { el, depth } of layers) {
       const moveX = Math.round(-currentX * max * depth);
