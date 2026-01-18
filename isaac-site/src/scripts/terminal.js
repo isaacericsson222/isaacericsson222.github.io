@@ -212,6 +212,9 @@ window.addEventListener("DOMContentLoaded", () => {
       `${ANSI.bold}${ANSI.magenta}e/east${ANSI.reset}     Go to fortune-teller`,
     );
     writelnRecord(
+      `${ANSI.bold}${ANSI.magenta}n/north${ANSI.reset}    Go to summet`,
+    );
+    writelnRecord(
       `${ANSI.bold}${ANSI.magenta}w/west${ANSI.reset}     Go back home`,
     );
   };
@@ -253,15 +256,29 @@ window.addEventListener("DOMContentLoaded", () => {
           window.location.pathname === "/index.html"
         ) {
           window.location.href = "/fortune-teller/";
-          writelnRecordWrapped(`As you enter the smaller pale purple tent the air stills. On a small
-oak table in the center sits a crystal ball coated in frost. The
-inside of the tent is pitch black and looking up you see what could be
-a pattern of constellations or stars. You get the feeling someone was just here.`);
+          writelnRecord(`You head east and enter the tent`);
         }
         return;
       case "w":
       case "west":
         if (window.location.pathname === "/fortune-teller/") {
+          window.location.href = "/";
+          writelnRecord(`You enter the crossroads`);
+        }
+        return;
+      case "n":
+      case "north":
+        if (
+          window.location.pathname === "/" ||
+          window.location.pathname === "/index.html"
+        ) {
+          window.location.href = "/summet/";
+          writelnRecord(`You north towards the summet...`);
+        }
+        return;
+      case "s":
+      case "south":
+        if (window.location.pathname === "/summet/") {
           window.location.href = "/";
           writelnRecord(`You enter the crossroads`);
         }
