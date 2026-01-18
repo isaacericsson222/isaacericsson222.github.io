@@ -113,7 +113,63 @@ import Layout from "../layouts/Layout.astro";
         <div class="content-col">
           <h1 class="panel-head">The Summet</h1>
 
-          <p class="panel">coming soon</p>
+          <p class="panel">
+            Currently I am going to be putting information on this page to
+            analyze my current D&D character as well as my two friends
+            characters using the statistical programming language R
+          </p>
+
+          <p class="panel">
+            I am currently in a class at cal poly that goes over the basics of
+            language so forgive me if anything here is inefficient or plain out
+            wrong, reach out if you want to let me know anything!
+          </p>
+
+          <h1 class="panel-head">Sadees the Rogue</h1>
+
+          <p class="panel">
+            My character Sadees is a rogue with one attack per turn, important
+            notes include a +1 rapier and a dex score of 18 giving him a +4. At
+            level 5 the character proficiency bonus is +3.
+          </p>
+
+          <p class="panel">
+            One complication that arises from this character is that a majority
+            of his damage relies on the rogues sneak attack(hyperlink) ability
+            as that adds 3d6 dice worth of damage on a single attack per turn.
+            However this ability is only available under special conditions,
+            mainly being having no disadvantage on an attack (2d20 take lower)
+            and having advantage on it (2d20 take higher)
+          </p>
+
+          <p class="panel">
+            Here I'll include 3 graphs, one for average damage without sneak
+            attack, average damage with sneak attack, and a final one for max
+            possible damage (crit potential)
+          </p>
+
+          <p class="panel">Rapier Damage</p>
+
+          <img
+            src="/styles/pngs/lowDamage.png"
+            alt="Low Damage Graph"
+            style="max-width: 600px; width: 100%; height: auto; display: block; margin: 0 auto;"
+          />
+          <p class="panel">Rapier Damage + Sneak Attack</p>
+
+          <img
+            src="/styles/pngs/averageDamge.png"
+            alt="Average Damage Graph"
+            style="max-width: 600px; width: 100%; height: auto; display: block; margin: 0 auto;"
+          />
+
+          <p class="panel">Crit Damage</p>
+
+          <img
+            src="/styles/pngs/maxDamage.png"
+            alt="Max Damage Graph"
+            style="max-width: 600px; width: 100%; height: auto; display: block; margin: 0 auto;"
+          />
         </div>
       </main>
 
@@ -180,7 +236,7 @@ import Layout from "../layouts/Layout.astro";
 
   .summet-page .sticky-left,
   .summet-page .sticky-right {
-    top: calc(var(--banner-h) + 40vh + 2rem);
+    top: calc(var(--banner-h) + 2rem);
   }
 
   .banner-drift {
