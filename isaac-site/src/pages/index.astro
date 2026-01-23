@@ -140,6 +140,27 @@ import Layout from "../layouts/Layout.astro";
             Hit me up if you have any questions or want to reach out about
             something on this site! I hope you enjoy your stay.
           </p>
+
+          <h1 class="panel-head">The Constellation Web Ring</h1>
+
+          <p class="panel">Here are some website that are super interesting!</p>
+
+          <ul class="panel">
+            <li>
+              <a
+                href="https://lucasericsson222.github.io/"
+                target="_blank"
+                rel="noopener noreferrer">https://lucasericsson222.github.io/</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://aquarmity.github.io/"
+                target="_blank"
+                rel="noopener noreferrer">https://aquarmity.github.io/</a
+              >
+            </li>
+          </ul>
         </div>
       </main>
 
@@ -207,6 +228,16 @@ import Layout from "../layouts/Layout.astro";
     .drifter {
       width: clamp(180px, 30vw, 300px);
     }
+  }
+
+  ul.panel {
+    list-style-position: inside;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  ul.panel li {
+    margin-bottom: 0.5em;
   }
 </style>
 
